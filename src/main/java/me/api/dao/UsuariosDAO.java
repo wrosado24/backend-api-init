@@ -6,4 +6,5 @@ import me.api.model.Usuarios;
 
 public interface UsuariosDAO extends JpaRepository<Usuarios, Integer>{
 	
+	
 }
