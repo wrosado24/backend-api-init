@@ -43,7 +43,7 @@ public class UsuariosRest {
 		usuariosDAO.deleteById(id);//.deleteById()-- Eliminamos por id un objeto de base
 	}
 	//@PutMapping("path") --- Anotacion para el metodo HTTP ===> PUT
-	@PutMapping("actualizarUsuario")
+	@PutMapping("/actualizarUsuario")
 	public void actualizarUsuario(@RequestBody Usuarios usuarios) {//--@RequestBody ==> Convierte el objeto java en JSON para hacer la insercion
 		usuariosDAO.save(usuarios);//.save() -- actualizar el objeto en base a su id que se le envia
 	}
