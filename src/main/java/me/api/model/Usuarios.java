@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuarios {
-	
+
 	@Id
 	private Integer id;
 	
