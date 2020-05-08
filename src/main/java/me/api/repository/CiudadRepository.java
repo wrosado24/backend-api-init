@@ -11,7 +11,7 @@ import me.api.model.Ciudad;
 
 public interface CiudadRepository extends JpaRepository<Ciudad, Integer>{
 	
-	@Query(value = "select *from pais inner join ciudad ON pais.id = ciudad.codigo_pais where ciudad.codigo_pais = :codPais", nativeQuery = true)
+	@Query(value = "select *from pais p inner join ciudad c ON p.id_pais = c.id_pais where c.id_pais = :codPais", nativeQuery = true)
 	public List<Ciudad> listarCiudades(@Param("codPais") Integer codPais);
 	
 }

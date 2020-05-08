@@ -10,41 +10,14 @@ import javax.persistence.ManyToOne;
 public class Ciudad {
 	
 	@Id
-	private Integer id;
+	private Integer id_ciudad;
 
 	@Column
-	private String nombre;
-	
-	@Column
-	private String codigo_ciudad;
+	private String nombre_ciudad;
 	
 	@ManyToOne
-	@JoinColumn(name="codigo_pais")
+	@JoinColumn(name="id_pais")
 	private Pais pais;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCodigo_ciudad() {
-		return codigo_ciudad;
-	}
-
-	public void setCodigo_ciudad(String codigo_ciudad) {
-		this.codigo_ciudad = codigo_ciudad;
-	}
 
 	public Pais getPais() {
 		return pais;
@@ -54,6 +27,24 @@ public class Ciudad {
 		this.pais = pais;
 	}
 
+	public String getNombre_ciudad() {
+		return nombre_ciudad;
+	}
+
+	public void setNombre_ciudad(String nombre_ciudad) {
+		this.nombre_ciudad = nombre_ciudad;
+	}
+
+	public Integer getId_ciudad() {
+		return id_ciudad;
+	}
+
+	public void setId_ciudad(Integer id_ciudad) {
+		this.id_ciudad = id_ciudad;
+	}
+	
+
+	
 
 	
 	
