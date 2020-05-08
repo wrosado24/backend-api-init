@@ -21,7 +21,7 @@ public class Distrito {
 	@ManyToOne
 	@JoinColumn(name="codigo_ciudad")
 	private Ciudad ciudad;
-
+	
 	public String getCodigo_distrito() {
 		return codigo_distrito;
 	}

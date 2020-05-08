@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.api.model.Ciudad;
+import me.api.model.Distrito;
 import me.api.model.Pais;
 import me.api.repository.CiudadRepository;
+import me.api.repository.DistritoRepository;
 import me.api.repository.PaisRepository;
 
 @RestController
@@ -23,8 +25,8 @@ public class LocalizacionRest {
 	@Autowired
 	private CiudadRepository ciudadRepository;
 	
-	//@Autowired
-	//private DistritoRepository distritoRepository;
+	@Autowired
+	private DistritoRepository distritoRepository;
 	
 	//Methods rest
 	
@@ -36,6 +38,11 @@ public class LocalizacionRest {
 	@GetMapping("/ciudades/{codPais}")
 	public List<Ciudad> listarCiudades(@PathVariable("codPais") Integer codPais){
 		return ciudadRepository.listarCiudades(codPais);
+	}
+	
+	@GetMapping("/distritos/{codCiudad}")
+	public List<Distrito> listarDistritos(@PathVariable("codCiudad") Integer codCiudad){
+		return distritoRepository.listarDistritos(codCiudad);
 	}
 
 }
