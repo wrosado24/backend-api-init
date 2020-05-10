@@ -1,14 +1,13 @@
 package me.api.model;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Usuario {
@@ -22,9 +21,9 @@ public class Usuario {
 	@Column
 	private String dni;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JsonManagedReference
-	private List<Nota> notas;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
+	private Set<Nota> notas;
 	
 	public Integer getId_usuario() {
 		return id_usuario;
@@ -50,13 +49,14 @@ public class Usuario {
 		this.dni = dni;
 	}
 
-	public List<Nota> getNotas() {
+	public Set<Nota> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(List<Nota> notas) {
+	public void setNotas(Set<Nota> notas) {
 		this.notas = notas;
 	}
+
 
 
 
