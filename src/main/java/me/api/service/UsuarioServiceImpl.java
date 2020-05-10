@@ -13,7 +13,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@PersistenceContext
 	private EntityManager em;
 
-	@SuppressWarnings( "unchecked" )
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> listarUsuarios() {
 		/*EJEMPLO DE INVOCAR PROCEDIMIENTOS CON PARAMETROS*/
@@ -27,5 +27,5 @@ public class UsuarioServiceImpl implements UsuarioService{
 		Query query = em.createNativeQuery("{call PRO_LISTAR_USUARIOS()}",Usuario.class);
 		return query.getResultList();
 	}
-
+	
 }

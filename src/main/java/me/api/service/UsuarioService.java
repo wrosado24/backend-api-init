@@ -8,5 +8,5 @@ import me.api.model.Usuario;
 public interface UsuarioService {
 	
 	public List<Usuario> listarUsuarios();
-
+	
 }

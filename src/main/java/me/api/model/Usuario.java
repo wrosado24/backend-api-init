@@ -1,27 +1,37 @@
 package me.api.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Usuario {
 	
 	@Id
-	private Integer id;
+	private Integer id_usuario;
 	
 	@Column
 	private String nombre_usuario;
 	
 	@Column
 	private String dni;
-
-	public Integer getId() {
-		return id;
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private List<Nota> notas;
+	
+	public Integer getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 	public String getNombre_usuario() {
@@ -39,6 +49,21 @@ public class Usuario {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
+
+	public List<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+
+
+
+
+
+
+
 	
-	
+
 }

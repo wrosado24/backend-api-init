@@ -3,6 +3,7 @@ package me.api.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import me.api.repository.CiudadRepository;
 import me.api.repository.DistritoRepository;
 import me.api.repository.PaisRepository;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("v1/localizacion")
 public class LocalizacionRest {
@@ -29,7 +31,6 @@ public class LocalizacionRest {
 	private DistritoRepository distritoRepository;
 	
 	//Methods rest
-	
 	@GetMapping("/paises")
 	public List<Pais> listarPaises(){
 		return paisRepository.listarPaises();
