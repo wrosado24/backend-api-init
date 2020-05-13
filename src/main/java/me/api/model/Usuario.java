@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -24,6 +25,9 @@ public class Usuario {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private Set<Nota> notas;
+	
+	@OneToOne
+	private Foto foto;
 	
 	public Integer getId_usuario() {
 		return id_usuario;
@@ -56,6 +60,15 @@ public class Usuario {
 	public void setNotas(Set<Nota> notas) {
 		this.notas = notas;
 	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
+	}
+	
 
 
 
