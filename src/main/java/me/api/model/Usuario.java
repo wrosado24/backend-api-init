@@ -1,14 +1,8 @@
 package me.api.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -21,13 +15,6 @@ public class Usuario {
 	
 	@Column
 	private String dni;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_usuario")
-	private Set<Nota> notas;
-	
-	@OneToOne
-	private Foto foto;
 	
 	public Integer getId_usuario() {
 		return id_usuario;
@@ -52,31 +39,5 @@ public class Usuario {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-
-	public Set<Nota> getNotas() {
-		return notas;
-	}
-
-	public void setNotas(Set<Nota> notas) {
-		this.notas = notas;
-	}
-
-	public Foto getFoto() {
-		return foto;
-	}
-
-	public void setFoto(Foto foto) {
-		this.foto = foto;
-	}
 	
-
-
-
-
-
-
-
-
-	
-
 }
