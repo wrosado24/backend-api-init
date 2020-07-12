@@ -6,8 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Service;
+
 import me.api.model.Usuario;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService{
 	
 	@PersistenceContext
@@ -16,14 +19,6 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> listarUsuarios() {
-		/*EJEMPLO DE INVOCAR PROCEDIMIENTOS CON PARAMETROS*/
-		/*Query query = em.createNativeQuery("{call getEmployeeDetails(?,?)}",
-                EmployeeDetails.class)           
-                .setParameter(1, employeeId)
-                .setParameter(2, companyId);
-
-		List<EmployeeDetails> result = query.getResultList();*/
-		//List<Usuario> result = query.getResultList();
 		Query query = em.createNativeQuery("{call PRO_LISTAR_USUARIOS()}",Usuario.class);
 		return query.getResultList();
 	}
